@@ -2,7 +2,7 @@ import random as rand
 
 
 ## Problem A
-set2 = sc.parallelize(range(100000))
+useless = sc.parallelize(range(100000))
 
 def mapping(x):
     row = [rand.randint(1,6) for i in range(1,8)]
@@ -13,3 +13,10 @@ def mapping(x):
 
 def add(x,y):
     return x+y
+
+useful = useless.map(mapping)
+
+count = useful.reduceByKey(add)
+
+probability = count[1,0] / (count[0,1] + count[1,1])
+
