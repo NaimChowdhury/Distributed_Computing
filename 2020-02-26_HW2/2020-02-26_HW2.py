@@ -18,5 +18,5 @@ useful = useless.map(mapping)
 
 count = useful.reduceByKey(add)
 
-probability = count[1,0] / (count[0,1] + count[1,1])
+probability = count.collect()[1][1] / (count.collect()[0][1] + count.collect()[1][1])
 
