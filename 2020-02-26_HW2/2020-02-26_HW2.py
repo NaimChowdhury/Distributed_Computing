@@ -38,5 +38,18 @@ set3 = set2.reduceByKey(add)
 
 set3.collect()
 
+def maximum(a,b):
+    return max(a[1], b[1])
+
+def malecheck(a):
+    if a[0][1] == 'MALE':
+        return True
+    else:
+        return False
+
+males = set3.filter(malecheck)
+
+males.collect()
+
 
 
