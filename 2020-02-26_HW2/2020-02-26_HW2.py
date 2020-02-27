@@ -25,8 +25,9 @@ print('The average of the numbers is: ', avg)
 ## Compute the sum of the even numbers in Some_numbers.csv
 
 def isEven(x):
+    x = int(x)
     if x%2==0:
-        return int(x)
+        return x
     else:
         return 0
 
@@ -38,6 +39,7 @@ evens = someNumbers.map(isEven)
 sumEvens = evens.reduce(add)
 
 print('The sum of the even numbers is: ', sumEvens)
+
 
 
 
