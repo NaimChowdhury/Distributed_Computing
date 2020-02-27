@@ -7,10 +7,10 @@ import random as rand
 
 someNumbers =sc.textFile("/usr/examples/Some_Numbers.csv") 
 
-def average(x):
+def average(x): # n -> (n,1)
     return (int(x), 1)
 
-def sumItUp(x,y):
+def sumItUp(x,y): # (x_0 + y0, x_1 + y_1)
     return (x[0]+y[0], x[1] + y[1])
 
 sumNumbers = someNumbers.map(average)
@@ -24,12 +24,12 @@ print('The average of the numbers is: ', avg)
 # Problem A
 useless = sc.parallelize(range(1000000))
 
-def mapping(x):
+def mapping(x): #produces dataset of 7 dice rolls per row 
     row = [rand.randint(1,6) for i in range(1,8)]
-    if sum( row[0:4] ) > sum( row[4:7] ):
-        return (1,1)
+    if sum( row[0:4] ) > sum( row[4:7] ): # checks sum for each experiment
+        return (1,1) #success
     else:
-        return (0,1)
+        return (0,1) #failure
 
 def add(x,y):
     return x+y
