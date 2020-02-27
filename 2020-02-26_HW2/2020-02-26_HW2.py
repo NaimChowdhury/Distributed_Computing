@@ -41,8 +41,21 @@ sumEvens = evens.reduce(add)
 print('The sum of the even numbers is: ', sumEvens)
 
 
+## Which number appears most often in Some_Numbers.csv?
 
+tagging = someNumbers.map(average)
 
+countFreq = tagging.reduceByKey(add)
+
+def maxSieve(x,y):
+    if x[1] > y[1]:
+        return x
+    else:
+        return y
+
+maxNum = countFreq.reduce(maxSieve)
+
+print('The number ', maxNum[0], ' is the mode, occuring ', maxNum[1], ' time in the dataset.')
 
 # Problem A
 useless = sc.parallelize(range(1000000))
