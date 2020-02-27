@@ -1,6 +1,26 @@
 import random as rand
 
 
+# Warm-up Exercises
+
+## Compute the Average of the numbers in Some_Numbers.csv
+
+someNumbers =sc.textFile("/usr/examples/Some_Numbers.csv") 
+
+def average(x):
+    return (int(x), 1)
+
+def sumItUp(x,y):
+    return (x[0]+y[0], x[1] + y[1])
+
+sumNumbers = someNumbers.map(average)
+
+avgNumbers = sumNumbers.reduce(sumItUp)
+
+avg = avgNumbers[0] / avgNumbers[1]
+
+print('The average of the numbers is: ', avg)
+
 # Problem A
 useless = sc.parallelize(range(1000000))
 
