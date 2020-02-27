@@ -21,6 +21,27 @@ avg = avgNumbers[0] / avgNumbers[1]
 
 print('The average of the numbers is: ', avg)
 
+
+## Compute the sum of the even numbers in Some_numbers.csv
+
+def isEven(x):
+    if x%2==0:
+        return int(x)
+    else:
+        return 0
+
+def add(x,y):
+    return x+y
+
+evens = someNumbers.map(isEven)
+
+sumEvens = evens.reduce(add)
+
+print('The sum of the even numbers is: ', sumEvens)
+
+
+
+
 # Problem A
 useless = sc.parallelize(range(1000000))
 
@@ -30,9 +51,6 @@ def mapping(x): #produces dataset of 7 dice rolls per row
         return (1,1) #success
     else:
         return (0,1) #failure
-
-def add(x,y):
-    return x+y
 
 useful = useless.map(mapping)
 
